@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Proyecto ACA · Canalizaciones y distribución · Cableado estructurado · Laura Johana Corredor Gómez">
+<title>Canalizaciones y Distribución · Laura Johana Corredor Gómez · ACA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--f1:'Orbitron','Arial Black',system-ui,sans-serif;--f2:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;--r:20px;--s:24px;--ease:cubic-bezier(.2,.7,.2,1);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+[data-theme=dark]{--bg:#07080b;--cd:#0f1117;--cd2:#161922;--tx:#f3f3f5;--mu:#a3a9b5;--ac:#f7c948;--ac2:#ffe58a;--bd:#2a2e3a;--ok:#3ddc97;--wa:#ff8a5c;--grid:rgba(247,201,72,.06);--glow:0 10px 40px -10px rgba(247,201,72,.35);--on:#000}
+[data-theme=light]{--bg:#f5f3ee;--cd:#ffffff;--cd2:#faf8f3;--tx:#111216;--mu:#555b68;--ac:#a77a0c;--ac2:#c99a1f;--bd:#dedad0;--ok:#0d7a52;--wa:#b4410f;--grid:rgba(0,0,0,.045);--glow:0 10px 30px -12px rgba(120,90,0,.35);--on:#000}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.65 var(--f2);min-height:100vh;transition:background .4s,color .4s;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:56px 56px;pointer-events:none;mask-image:radial-gradient(ellipse at 50% 0%,#000 25%,transparent 70%);z-index:0}
+a:focus-visible,button:focus-visible,input:focus-visible,[role=tab]:focus-visible,[role=button]:focus-visible{outline:3px solid var(--ac2);outline-offset:3px;border-radius:8px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ac);color:var(--on);padding:10px 14px;border-radius:10px;z-index:99}.skip:focus{left:12px}
+header{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);border-bottom:1px solid var(--bd)}
+.bar{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:16px;padding:12px 20px;min-height:64px}
+.logo{font:800 14px var(--f1);letter-spacing:.16em;color:var(--ac);text-decoration:none;white-space:nowrap}
+nav{flex:1;min-width:0;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding:4px 2px}nav::-webkit-scrollbar{display:none}
+nav a{flex:none;font-size:14px;font-weight:500;color:var(--mu);text-decoration:none;padding:9px 14px;border-radius:999px;min-height:40px;display:inline-flex;align-items:center;transition:.25s}
+nav a:hover{color:var(--tx);background:var(--cd2)}nav a[aria-current=page]{background:var(--ac);color:var(--on);font-weight:600}
+.tg{flex:none;width:58px;height:34px;border-radius:999px;border:1px solid var(--bd);background:var(--cd2);position:relative;cursor:pointer;padding:0}
+.tg::after{content:"";position:absolute;top:4px;left:4px;width:24px;height:24px;border-radius:50%;background:var(--ac);transition:transform .35s var(--ease)}
+[data-theme=light] .tg::after{transform:translateX(24px)}
+.prog{height:3px;background:transparent}.prog div{height:100%;width:0;background:linear-gradient(90deg,var(--ac),var(--ac2));transition:width .4s var(--ease)}
+main{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 20px 72px}
+.pg{display:none}.pg.on{display:block;animation:up .5s var(--ease)}
+@keyframes up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+h1,h2,h3{font-family:var(--f1);letter-spacing:.03em;margin:0;line-height:1.2}
+h2{font-size:clamp(26px,4vw,40px);font-weight:800;text-transform:uppercase}
+h3{font:700 16px var(--f1);color:var(--tx);margin-bottom:8px}
+p{margin:0 0 12px}small{color:var(--mu)}
+.ph{padding:56px 0 28px;border-bottom:1px solid var(--bd);margin-bottom:32px}
+.crumb{font:600 12px var(--f1);letter-spacing:.2em;color:var(--ac);text-transform:uppercase;margin-bottom:12px}
+.ph p.intro{color:var(--mu);font-size:18px;max-width:720px;margin-top:14px}
+.panel{background:var(--cd);border:1px solid var(--bd);border-radius:var(--r);padding:var(--s)}
+.sec{margin-bottom:28px}
+.grid3{display:grid;gap:18px;grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid2{display:grid;gap:18px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.item{background:var(--cd);border:1px solid var(--bd);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:6px;min-height:100%;transition:transform .3s var(--ease),border-color .3s,box-shadow .3s;color:var(--tx);text-decoration:none}
+a.item:hover,.item.hov:hover{transform:translateY(-4px);border-color:var(--ac);box-shadow:var(--glow)}
+.ico{width:48px;height:48px;border-radius:14px;background:var(--ac);color:var(--on);display:grid;place-items:center;font-size:22px;margin-bottom:8px;flex:none}
+.item p{color:var(--mu);font-size:15px;margin:0}
+.item .go{margin-top:auto;padding-top:10px;color:var(--ac);font-weight:600;font-size:14px}
+.hero{padding:72px 0 36px;position:relative;overflow:hidden}
+.kicker{font:600 12px var(--f1);letter-spacing:.28em;color:var(--ac);text-transform:uppercase}
+.hero h1{font-size:clamp(42px,8vw,92px);font-weight:800;line-height:1;margin:18px 0 20px;background:linear-gradient(100deg,var(--tx) 0%,var(--ac) 35%,var(--ac2) 50%,var(--tx) 65%,var(--ac) 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sheen 7s linear infinite}
+@keyframes sheen{to{background-position:-250% 0}}
+.lead{font-size:clamp(17px,2vw,20px);color:var(--mu);max-width:660px;margin:0}
+.author{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:26px;padding:16px 20px;border:1px solid var(--bd);border-radius:16px;background:var(--cd);width:fit-content;max-width:100%}
+.author div{font-size:13px;color:var(--mu)}.author b{display:block;color:var(--tx);font-size:15px;font-weight:600}
+.eq{display:flex;gap:5px;align-items:flex-end;height:50px;margin:30px 0 4px}
+.eq i{width:7px;background:linear-gradient(var(--ac2),var(--ac));border-radius:3px;animation:eq 1.1s ease-in-out infinite alternate}
+@keyframes eq{from{height:8px}to{height:50px}}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.btn{font:600 15px var(--f2);min-height:48px;padding:12px 24px;border-radius:999px;border:1.5px solid var(--ac);text-decoration:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:.3s var(--ease)}
+.btn.p{background:var(--ac);color:var(--on)}.btn.p:hover{box-shadow:var(--glow);transform:translateY(-2px)}
+.btn.s{background:transparent;color:var(--tx)}.btn.s:hover{background:var(--cd2)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:44px}
+.stat{background:var(--cd);border:1px solid var(--bd);border-radius:var(--r);padding:20px}
+.num{font:800 clamp(28px,4vw,40px) var(--f1);color:var(--ac);line-height:1.1}
+.stat small{display:block;margin-top:6px;font-size:14px}
+.hz{position:absolute;right:-8%;top:4%;width:min(580px,60vw);opacity:.18;pointer-events:none;z-index:-1}
+.hz path{fill:none;stroke:var(--ac);stroke-width:2;stroke-dasharray:14 10;animation:flow 3s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-240}}
+.ex{border-left:3px solid var(--ok);background:var(--cd2);padding:16px 20px;border-radius:0 14px 14px 0;margin:16px 0}.ex b{color:var(--ok)}
+.ex.w{border-color:var(--wa)}.ex.w b{color:var(--wa)}
+.fl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:16px 0}.fl span{background:var(--ac);color:var(--on);font-weight:600;padding:9px 14px;border-radius:12px;font-size:14px}.fl i{color:var(--mu);font-style:normal}
+.tl{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.tb{font:500 14px var(--f2);min-height:42px;border:1px solid var(--bd);background:var(--cd2);color:var(--tx);padding:9px 16px;border-radius:999px;cursor:pointer;transition:.25s}
+.tb:hover{border-color:var(--ac)}.tb[aria-selected=true]{background:var(--ac);color:var(--on);border-color:var(--ac);font-weight:600}
+.tp{background:var(--cd2);border-radius:14px;padding:20px;min-height:110px}
+.flip{perspective:1000px;height:200px;cursor:pointer;outline:none}
+.flip>div{position:relative;width:100%;height:100%;transition:transform .6s var(--ease);transform-style:preserve-3d}
+.flip.fp>div{transform:rotateY(180deg)}
+.flip.fp:focus-visible{outline:3px solid var(--ac2);outline-offset:3px;border-radius:var(--r)}
+.face{position:absolute;inset:0;backface-visibility:hidden;border-radius:var(--r);padding:22px;display:flex;flex-direction:column;justify-content:center;border:1px solid var(--bd);text-align:left}
+.face.f{background:var(--cd)}.face.f .ico{margin-bottom:12px}
+.face.k{background:var(--ac);color:var(--on);transform:rotateY(180deg)}
+.face.k h3{color:var(--on)}.face.k p{color:var(--on);margin:0;font-size:15px;font-weight:500}
+.hint{font-size:12px;color:var(--mu);margin-top:12px}
+.scr{overflow-x:auto;border-radius:var(--r)}
+table{width:100%;border-collapse:collapse;font-size:15px;min-width:560px}
+th,td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--bd);vertical-align:top}
+th{font:700 12px var(--f1);color:var(--ac);letter-spacing:.1em;text-transform:uppercase}
+tr:last-child td{border-bottom:0}tbody tr:hover td{background:var(--cd2)}
+td b{color:var(--tx)}
+label{font-size:13px;color:var(--mu);display:block;margin-bottom:6px;font-weight:500}
+input[type=number]{width:140px;min-height:48px;padding:10px 14px;border:1px solid var(--bd);border-radius:12px;background:var(--cd2);color:var(--tx);font:500 16px var(--f2)}
+input[type=number]:focus{border-color:var(--ac);outline:none;box-shadow:0 0 0 3px color-mix(in srgb,var(--ac) 25%,transparent)}
+.calc{display:flex;gap:16px;flex-wrap:wrap;align-items:end}
+.bb{height:14px;background:var(--cd2);border-radius:99px;overflow:hidden;border:1px solid var(--bd);margin:20px 0 10px}.bb div{height:100%;width:0;background:var(--ok);transition:.4s var(--ease);border-radius:99px}
+.res{font-size:16px}
+svg text{fill:var(--tx);font:13px var(--f2)}
+.hs{cursor:pointer;transition:.25s;outline:none}.hs:hover,.hs.on,.hs:focus-visible{filter:drop-shadow(0 0 8px var(--ac));stroke:var(--ac);stroke-width:3}
+.build{display:grid;grid-template-columns:1.4fr 1fr;gap:18px;align-items:start}
+.vids{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.vid{display:flex;gap:14px;align-items:center;padding:18px;background:var(--cd);border:1px solid var(--bd);border-radius:var(--r);text-decoration:none;color:var(--tx);transition:.3s var(--ease)}
+.vid:hover{border-color:#ff4a4a;transform:translateY(-3px)}
+.vid .pl{flex:none;width:52px;height:38px;border-radius:12px;background:#ff3b3b;color:#fff;display:grid;place-items:center;font-size:16px}
+.vid span{font-weight:600}.vid small{display:block;font-weight:400}
+.qbox{max-width:760px;margin:0 auto}
+.pr{height:8px;background:var(--bd);border-radius:8px;margin-bottom:26px;overflow:hidden}.pr div{height:100%;background:linear-gradient(90deg,var(--ac),var(--ac2));width:0;transition:.4s var(--ease)}
+.qn{font:600 13px var(--f1);color:var(--ac);letter-spacing:.12em;text-transform:uppercase}
+.qq{font:700 20px var(--f2);margin:8px 0 18px;line-height:1.4}
+.qa{display:flex;align-items:center;gap:12px;width:100%;text-align:left;margin:10px 0;padding:15px 18px;min-height:52px;border:1px solid var(--bd);border-radius:14px;background:var(--cd2);color:var(--tx);font:500 16px var(--f2);cursor:pointer;transition:.25s}
+.qa:hover:not(:disabled){border-color:var(--ac)}
+.qa:disabled{cursor:default}
+.qa.ok{background:var(--ok);border-color:var(--ok);color:#fff}.qa.no{background:var(--wa);border-color:var(--wa);color:#fff}
+.fb{min-height:48px;margin-top:12px;font-weight:600}.fb small{font-weight:400;color:var(--mu);display:block;margin-top:4px}
+.res-card{text-align:center;padding:40px 24px}.res-card .big{font-size:56px;margin-bottom:6px}
+.btn-s{font:600 15px var(--f2);background:var(--ac);color:var(--on);border:0;min-height:48px;padding:12px 24px;border-radius:999px;cursor:pointer;margin-top:18px}
+.foot{position:relative;z-index:1;border-top:1px solid var(--bd);padding:28px 20px;text-align:center;color:var(--mu);font-size:14px}
+.foot b{color:var(--tx)}
+ol,ul{padding-left:22px}li{margin:8px 0}
+@media (max-width:900px){.grid3{grid-template-columns:repeat(2,minmax(0,1fr))}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.build{grid-template-columns:1fr}}
+@media (max-width:600px){.grid3,.grid2,.vids{grid-template-columns:1fr}.hero{padding-top:44px}.logo{font-size:12px}.bar{padding:10px 14px;gap:10px}.bar .logo{display:none}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style></head><body>
+<a class="skip" href="#main">Saltar al contenido</a>
+<header>
+<div class="bar">
+<a class="logo" href="#inicio" aria-label="Inicio">CDT · ACA</a>
+<nav id="nv" aria-label="Secciones"></nav>
+<button class="tg" id="tg" type="button" aria-label="Cambiar entre modo oscuro y claro" aria-pressed="false" title="Modo oscuro / claro"></button>
+</div>
+<div class="prog" aria-hidden="true"><div id="pg"></div></div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<!-- INICIO -->
+<section class="pg" id="inicio" aria-labelledby="h-inicio">
+<div class="hero">
+<svg class="hz" viewBox="0 0 500 400" aria-hidden="true"><path d="M10 40 H200 Q230 40 230 70 V180 Q230 210 260 210 H490"/><path d="M10 120 H150 Q180 120 180 150 V300 Q180 330 210 330 H490"/><path d="M10 200 H300 Q330 200 330 230 V390"/><path d="M60 0 V90 Q60 110 80 110 H490"/></svg>
+<span class="kicker">Proyecto ACA · Cableado estructurado</span>
+<h1 id="h-inicio">Canalizaciones<br>y distribución</h1>
+<p class="lead">La infraestructura que hace posible cada conexión: cómo se diseñan las rutas de los cables, cómo se reparten por el edificio y qué normas las regulan.</p>
+<div class="author" aria-label="Datos de la autora">
+<div>Presentado por<b>Laura Johana Corredor Gómez</b></div>
+<div>Programa<b>Ingeniería de Sistemas · 4.º semestre</b></div>
+<div>Asignatura<b>Cableado Estructurado</b></div>
+</div>
+<div class="eq" aria-hidden="true"><i style="animation-delay:0s"></i><i style="animation-delay:.15s"></i><i style="animation-delay:.3s"></i><i style="animation-delay:.45s"></i><i style="animation-delay:.6s"></i><i style="animation-delay:.2s"></i><i style="animation-delay:.5s"></i><i style="animation-delay:.1s"></i><i style="animation-delay:.4s"></i><i style="animation-delay:.25s"></i><i style="animation-delay:.55s"></i><i style="animation-delay:.05s"></i></div>
+<div class="cta"><a class="btn p" href="#que-es">Comenzar</a><a class="btn s" href="#quiz">Hacer el quiz</a></div>
+<div class="stats">
+<div class="stat"><div class="num" data-c="90">0</div><small>metros máx. de cable horizontal</small></div>
+<div class="stat"><div class="num" data-c="40">0</div><small>% de llenado máximo en tubería</small></div>
+<div class="stat"><div class="num" data-c="12">0</div><small>preguntas de autoevaluación</small></div>
+<div class="stat"><div class="num" data-c="10">0</div><small>normas y referencias</small></div>
+</div>
+</div>
+<h2 style="font-size:22px;margin:12px 0 18px">Explora el tema</h2>
+<div class="grid3">
+<a class="item" href="#que-es"><div class="ico">❓</div><h3>¿Qué es?</h3><p>Definición, analogía y recorrido de la señal.</p><span class="go">Ver →</span></a>
+<a class="item" href="#caracteristicas"><div class="ico">⭐</div><h3>Características</h3><p>Ventajas principales con tarjetas para voltear.</p><span class="go">Ver →</span></a>
+<a class="item" href="#donde"><div class="ico">📍</div><h3>Dónde se usa</h3><p>Sectores y zonas del edificio donde se implementa.</p><span class="go">Ver →</span></a>
+<a class="item" href="#normas"><div class="ico">📜</div><h3>Normas</h3><p>TIA, ISO, BICSI, NEC y RETIE.</p><span class="go">Ver →</span></a>
+<a class="item" href="#tipos"><div class="ico">🔩</div><h3>Tipos</h3><p>Conduit, bandeja, canaleta, shaft y más.</p><span class="go">Ver →</span></a>
+<a class="item" href="#diseno"><div class="ico">📐</div><h3>Diseño</h3><p>Reglas de diseño y calculadora de llenado.</p><span class="go">Ver →</span></a>
+<a class="item" href="#practica"><div class="ico">🏢</div><h3>Edificio interactivo</h3><p>Toca cada zona y aprende su función.</p><span class="go">Ver →</span></a>
+<a class="item" href="#videos"><div class="ico">▶️</div><h3>Videos</h3><p>Material de apoyo en YouTube.</p><span class="go">Ver →</span></a>
+<a class="item" href="#quiz"><div class="ico">🏆</div><h3>Quiz</h3><p>12 preguntas con retroalimentación y resultado final.</p><span class="go">Ver →</span></a>
+</div>
+</section>
+
+<!-- QUÉ ES -->
+<section class="pg" id="que-es" aria-labelledby="h-que"><div class="ph"><div class="crumb">01 · Concepto</div><h2 id="h-que">¿Qué es?</h2><p class="intro">Una canalización es la ruta física por la que viajan los cables. La distribución es la forma en que la señal llega desde la entrada del edificio hasta cada puesto.</p></div>
+<div class="sec panel"><p><b>Canalización</b> (pathway): ruta física que soporta, protege y oculta los cables entre espacios de telecomunicaciones: tubería, bandejas, canaletas y ductos de piso.</p><p><b>Distribución</b>: jerarquía en estrella que reparte la señal desde la entrada hasta cada puesto de trabajo.</p>
+<div class="ex"><b>Analogía:</b> una ciudad. Los cables son los carros, las canalizaciones son las calles y puentes, y los cuartos de telecomunicaciones son las intersecciones. Sin buenas calles hay trancones y no se puede crecer.</div></div>
+<div class="sec panel"><h3>Recorrido de la señal</h3>
+<div class="fl"><span>Acometida</span><i>➜</i><span>Cuarto de equipos</span><i>➜</i><span>Backbone</span><i>➜</i><span>Cuarto del piso</span><i>➜</i><span>Horizontal</span><i>➜</i><span>Puesto</span></div>
+<svg viewBox="0 0 640 220" width="100%" role="img" aria-label="Distribución en estrella: cuarto de equipos conectado a los cuartos de telecomunicaciones de cada piso, y de allí a los puestos"><rect x="250" y="8" width="140" height="40" rx="10" fill="#f7c948"/><text x="320" y="33" text-anchor="middle" style="fill:#000;font-weight:700">Cuarto de equipos</text>
+<g stroke="#8a90a0" stroke-width="2" fill="none"><path d="M320 48V100M320 48L120 100M320 48L520 100"/><path d="M120 140L60 180M120 140L180 180M320 140L260 180M320 140L380 180M520 140L460 180M520 140L580 180"/></g>
+<g fill="#3ddc97"><rect x="55" y="100" width="130" height="40" rx="10"/><rect x="255" y="100" width="130" height="40" rx="10"/><rect x="455" y="100" width="130" height="40" rx="10"/></g>
+<g text-anchor="middle"><text x="120" y="125" style="fill:#000;font-weight:700">TR piso 3</text><text x="320" y="125" style="fill:#000;font-weight:700">TR piso 2</text><text x="520" y="125" style="fill:#000;font-weight:700">TR piso 1</text><text x="60" y="206">💻</text><text x="180" y="206">💻</text><text x="260" y="206">💻</text><text x="380" y="206">💻</text><text x="460" y="206">💻</text><text x="580" y="206">💻</text></g>
+<text x="200" y="78">fibra backbone</text></svg></div>
+</section>
+
+<!-- CARACTERÍSTICAS -->
+<section class="pg" id="caracteristicas" aria-labelledby="h-car"><div class="ph"><div class="crumb">02 · Características</div><h2 id="h-car">Características principales</h2><p class="intro">Seis ventajas de una buena canalización. Toca o presiona Enter sobre cada tarjeta para ver el detalle.</p></div>
+<div class="grid3" id="cards" style="margin-bottom:28px"></div>
+<div class="grid3">
+<div class="stat"><div class="num">90 m</div><small>cable horizontal permanente (+10 m de patch cords, TIA-568)</small></div>
+<div class="stat"><div class="num">40 %</div><small>llenado máximo de tubería con 3 o más cables</small></div>
+<div class="stat"><div class="num">25 → 50 %</div><small>bandeja: diseño inicial y máximo</small></div>
+</div></section>
+
+<!-- DÓNDE -->
+<section class="pg" id="donde" aria-labelledby="h-don"><div class="ph"><div class="crumb">03 · Aplicación</div><h2 id="h-don">¿Dónde se utiliza?</h2><p class="intro">Las canalizaciones aparecen en casi todo tipo de edificio. Selecciona un sector para ver cómo se aplica.</p></div>
+<div class="panel sec"><div class="tl" role="tablist" id="st" aria-label="Sectores"></div><div class="tp" id="sx" role="tabpanel"></div></div>
+<div class="ph" style="padding:12px 0 22px;border:0"><h2 style="font-size:28px">¿Dónde se implementa?</h2><p class="intro">Según la jerarquía de espacios del edificio.</p></div>
+<div class="grid3">
+<div class="item"><div class="ico">🚪</div><h3>Entrada</h3><p>Subterránea o aérea hasta la sala de entrada.</p></div>
+<div class="item"><div class="ico">🛗</div><h3>Shafts</h3><p>Ductos verticales entre pisos para el backbone.</p></div>
+<div class="item"><div class="ico">⬆️</div><h3>Cielo raso</h3><p>Bandejas, J-hooks y tramos de tubería.</p></div>
+<div class="item"><div class="ico">🧱</div><h3>Paredes</h3><p>Tubería y canaleta hasta cada toma.</p></div>
+<div class="item"><div class="ico">🔲</div><h3>Piso</h3><p>Piso elevado o ductos embebidos.</p></div>
+<div class="item"><div class="ico">🗄️</div><h3>Cuartos técnicos</h3><p>Racks, patch panels y switches.</p></div>
+</div></section>
+
+<!-- NORMAS -->
+<section class="pg" id="normas" aria-labelledby="h-nor"><div class="ph"><div class="crumb">04 · Marco normativo</div><h2 id="h-nor">Normas que se utilizan</h2><p class="intro">Las normas definen cómo diseñar, instalar y administrar la infraestructura. Las de la serie TIA son las más usadas en telecomunicaciones.</p></div>
+<div class="panel scr"><table>
+<thead><tr><th scope="col">Norma</th><th scope="col">Qué define</th></tr></thead>
+<tbody>
+<tr><td><b>ANSI/TIA-569-E</b></td><td>Canalizaciones y espacios de telecomunicaciones (edición de 2019).</td></tr>
+<tr><td><b>ANSI/TIA-568</b></td><td>Cableado: topología, distancias, componentes y desempeño.</td></tr>
+<tr><td><b>ANSI/TIA-606</b></td><td>Administración y etiquetado de la infraestructura.</td></tr>
+<tr><td><b>ANSI/TIA-607</b></td><td>Puesta a tierra y equipotencialidad para telecomunicaciones.</td></tr>
+<tr><td><b>ANSI/TIA-942</b></td><td>Infraestructura de centros de datos.</td></tr>
+<tr><td><b>ISO/IEC 11801</b></td><td>Cableado genérico internacional.</td></tr>
+<tr><td><b>EN 50174-2</b></td><td>Instalación de cableado en edificios (Europa).</td></tr>
+<tr><td><b>ANSI/BICSI 002 y TDMM</b></td><td>Buenas prácticas de diseño y distribución.</td></tr>
+<tr><td><b>NEC / NFPA 70</b></td><td>Código eléctrico de EE. UU.: tuberías y seguridad.</td></tr>
+<tr><td><b>RETIE (Colombia)</b></td><td>Reglamento técnico de instalaciones eléctricas; referencia para separar datos y energía.</td></tr>
+</tbody></table></div></section>
+
+<!-- TIPOS -->
+<section class="pg" id="tipos" aria-labelledby="h-tip"><div class="ph"><div class="crumb">05 · Tipos</div><h2 id="h-tip">Tipos de canalizaciones</h2><p class="intro">Cada tipo tiene un uso ideal. Elige una pestaña para comparar ventajas y cuidados.</p></div>
+<div class="panel sec"><div class="tl" role="tablist" id="tt" aria-label="Tipos de canalización"></div><div class="tp" id="tx" role="tabpanel"></div>
+<div class="ex" style="margin-top:20px"><b>Clasificación NEMA:</b> las canalizaciones pueden ser <b>continuas</b> (conduit, bandeja, escalerilla) o <b>no continuas</b> (J-hooks y abrazaderas).</div></div></section>
+
+<!-- DISEÑO -->
+<section class="pg" id="diseno" aria-labelledby="h-dis"><div class="ph"><div class="crumb">06 · Diseño</div><h2 id="h-dis">Reglas de diseño</h2><p class="intro">Cinco reglas que evitan la mayoría de fallas en campo.</p></div>
+<div class="build">
+<div class="panel"><ul>
+<li><b>Radio de curvatura:</b> en UTP, regla práctica de 4 veces el diámetro del cable.</li>
+<li><b>Separación de energía:</b> evita interferencia (EMI). La distancia aumenta con la potencia del circuito y baja si hay conduit metálico.</li>
+<li><b>Puesta a tierra:</b> las canalizaciones metálicas deben conectarse a tierra.</li>
+<li><b>Altura en bandeja:</b> máximo 150 mm (6 in) de cables apilados.</li>
+<li><b>Sin bordes filosos</b> y espacio libre para crecer.</li></ul>
+<div class="ex w"><b>Error común:</b> llenar la tubería “porque aún cabe”. Sube la tensión de jalado y puede dañar el desempeño.</div></div>
+<div class="panel"><h3>Calculadora de llenado</h3><p><small>Fórmula: llenado = (n × d²) ÷ D²</small></p>
+<div class="calc">
+<div><label for="D">Diámetro interior D (mm)</label><input id="D" type="number" value="27" min="1" inputmode="decimal"></div>
+<div><label for="d">Diámetro del cable d (mm)</label><input id="d" type="number" value="6" min="1" step="0.1" inputmode="decimal"></div>
+<div><label for="n">Número de cables</label><input id="n" type="number" value="5" min="1" inputmode="numeric"></div></div>
+<div class="bb" role="progressbar" aria-label="Porcentaje de llenado" aria-valuemin="0" aria-valuemax="100"><div id="bb"></div></div>
+<p class="res" id="rr" aria-live="polite"></p><small>Ejemplo: tubería de 1" ≈ 27 mm interior; UTP Cat6 ≈ 6 mm.</small></div></div></section>
+
+<!-- PRÁCTICA -->
+<section class="pg" id="practica" aria-labelledby="h-pra"><div class="ph"><div class="crumb">07 · Práctica</div><h2 id="h-pra">Edificio interactivo</h2><p class="intro">Toca o selecciona una zona del edificio para conocer su función.</p></div>
+<div class="build">
+<div class="panel"><svg viewBox="0 0 640 300" width="100%" role="img" aria-label="Edificio con canalizaciones">
+<rect x="150" y="20" width="340" height="230" rx="12" fill="none" stroke="#8a90a0" stroke-width="2"/>
+<g class="hs" tabindex="0" role="button" data-i="0"><rect x="10" y="200" width="120" height="50" rx="10" fill="#8a90a0"/><text x="70" y="230" text-anchor="middle" style="fill:#000;font-weight:700">Acometida</text></g>
+<g class="hs" tabindex="0" role="button" data-i="1"><rect x="160" y="190" width="120" height="52" rx="10" fill="#f7c948"/><text x="220" y="221" text-anchor="middle" style="fill:#000;font-weight:700">Cuarto equipos</text></g>
+<g class="hs" tabindex="0" role="button" data-i="2"><rect x="300" y="30" width="30" height="212" rx="6" fill="#ff8a5c"/><text x="315" y="140" text-anchor="middle" style="fill:#000;font-weight:700" transform="rotate(-90 315 140)">Shaft</text></g>
+<g class="hs" tabindex="0" role="button" data-i="3"><rect x="345" y="105" width="135" height="40" rx="10" fill="#3ddc97"/><text x="412" y="130" text-anchor="middle" style="fill:#000;font-weight:700">TR piso 2</text></g>
+<g class="hs" tabindex="0" role="button" data-i="4"><rect x="345" y="62" width="135" height="22" rx="6" fill="#b48cff"/><text x="412" y="78" text-anchor="middle" style="fill:#000;font-weight:700">Bandeja</text></g>
+<g class="hs" tabindex="0" role="button" data-i="5"><rect x="345" y="170" width="135" height="40" rx="10" fill="#5ad1ff"/><text x="412" y="195" text-anchor="middle" style="fill:#000;font-weight:700">Puesto</text></g>
+<path d="M130 225H160M280 215H300M330 125H345M412 84V105M412 145V170" stroke="#f7c948" stroke-width="2" stroke-dasharray="6 6" fill="none"/></svg></div>
+<div class="panel"><h3>Detalle</h3><p id="ip" aria-live="polite" style="color:var(--mu)">Selecciona una zona del edificio.</p></div>
+</div>
+<div class="ph" style="padding:40px 0 22px;border:0"><h2 style="font-size:28px">Caso práctico</h2><p class="intro">Pequeña empresa de 2 pisos y 40 puestos de trabajo.</p></div>
+<div class="panel"><ol>
+<li>Cuarto de equipos en el piso 1 con rack, switch core y router.</li>
+<li>Backbone de fibra por el shaft hasta el piso 2.</li>
+<li>20 cables UTP por piso, en bandeja y tubería hasta cada toma.</li>
+<li>Verificar: tramos de máx. 90 m, bandeja al 25 %, datos separados de la energía.</li>
+<li>Etiquetar cada cable y toma según TIA-606 (por ejemplo P1-A01).</li></ol></div></section>
+
+<!-- VIDEOS -->
+<section class="pg" id="videos" aria-labelledby="h-vid"><div class="ph"><div class="crumb">08 · Multimedia</div><h2 id="h-vid">Videos de apoyo</h2><p class="intro">Búsquedas en YouTube con los temas del curso, para encontrar material actualizado.</p></div>
+<div class="vids" id="vl"></div></section>
+
+<!-- QUIZ -->
+<section class="pg" id="quiz" aria-labelledby="h-qz"><div class="ph"><div class="crumb">09 · Autoevaluación</div><h2 id="h-qz">Quiz final</h2><p class="intro">12 preguntas. Recibirás retroalimentación en cada respuesta y un resultado al final.</p></div>
+<div class="qbox"><div class="pr" role="progressbar" aria-label="Avance del quiz" aria-valuemin="0" aria-valuemax="12"><div id="pb"></div></div>
+<div class="panel" id="qz" aria-live="polite"></div></div></section>
+
+<!-- FUENTES -->
+<section class="pg" id="fuentes" aria-labelledby="h-fu"><div class="ph"><div class="crumb">10 · Referencias</div><h2 id="h-fu">Fuentes consultadas</h2><p class="intro">Fuentes usadas para construir el contenido del proyecto.</p></div>
+<div class="panel"><ol>
+<li>TIA. <i>TIA-569-E, Telecommunications Pathways and Spaces</i> (mayo 2019). tiaonline.org</li>
+<li>NEMA. “Structured Cabling for Data Communications”. nema.org</li>
+<li>Leviton. <i>Application Note: Max Cable Fill Ratios in Cable Managers</i>. leviton.com</li>
+<li>Open Exam Prep. “Cable Pathways, Cable Trays, Fill Ratios, Bend Radius, and Separation from Power” (ANSI/TIA-569-E, BICSI 002).</li>
+<li>Open Exam Prep. “Telecommunications Pathways, Spaces, and Administration” (TIA-569-E / TIA-606-C).</li>
+<li>BICSI. <i>Telecommunications Distribution Methods Manual (TDMM)</i>.</li></ol>
+<p><small>Las cifras de 90 m y radio de curvatura 4× vienen de ANSI/TIA-568 y práctica común. Las demás normas son referencia; verifícalas en el texto oficial de cada norma.</small></p></div></section>
+</main>
+
+<footer class="foot"><b>Laura Johana Corredor Gómez</b> · Ingeniería de Sistemas, 4.º semestre · Cableado Estructurado · Proyecto ACA</footer>
+
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+var P=[['inicio','Inicio'],['que-es','¿Qué es?'],['caracteristicas','Características'],['donde','Dónde'],['normas','Normas'],['tipos','Tipos'],['diseno','Diseño'],['practica','Práctica'],['videos','Videos'],['quiz','Quiz'],['fuentes','Fuentes']];
+var nv=$('nv');
+P.forEach(function(p){var a=document.createElement('a');a.href='#'+p[0];a.textContent=p[1];a.dataset.p=p[0];nv.appendChild(a)});
+
+/* Tema */
+function setTheme(t){document.documentElement.setAttribute('data-theme',t);$('tg').setAttribute('aria-pressed',t==='light');try{localStorage.setItem('cdt-theme',t)}catch(e){}}
+var sv=null;try{sv=localStorage.getItem('cdt-theme')}catch(e){}
+setTheme(sv||(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'));
+$('tg').onclick=function(){setTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark')};
+
+/* Router */
+function show(){var h=location.hash.slice(1)||'inicio';if(!P.some(function(p){return p[0]===h}))h='inicio';
+document.querySelectorAll('.pg').forEach(function(s){s.classList.toggle('on',s.id===h)});
+var idx=0;[].forEach.call(nv.children,function(a,k){var on=a.dataset.p===h;if(on){idx=k;a.setAttribute('aria-current','page');a.scrollIntoView({block:'nearest',inline:'center'})}else a.removeAttribute('aria-current')});
+$('pg').style.width=((idx+1)/P.length*100)+'%';
+document.title=(h==='inicio'?'':P[idx][1]+' · ')+'Canalizaciones y Distribución · Laura Johana Corredor Gómez';
+window.scrollTo({top:0,behavior:'instant'});
+var m=$('main');m.focus({preventScroll:true})}
+window.addEventListener('hashchange',show);show();
+
+/* Contadores */
+document.querySelectorAll('[data-c]').forEach(function(el){var t=+el.dataset.c,s=0,st=t/40;var iv=setInterval(function(){s+=st;if(s>=t){s=t;clearInterval(iv)}el.textContent=Math.round(s)},30)});
+
+/* Características */
+var C=[['🛡️','Protección','Resguarda el cable de golpes, humedad y roedores.'],['🗂️','Organización','Rutas ordenadas: menos desorden y menos fallas.'],['📈','Escalabilidad','Espacio libre para agregar cables sin romper paredes.'],['🔥','Seguridad','Cumple normas contra incendio y riesgo eléctrico.'],['📏','Normalización','Sigue estándares TIA/ISO reconocidos mundialmente.'],['🔧','Mantenimiento','Acceso fácil para revisar y cambiar cables.']];
+C.forEach(function(c){var w=document.createElement('div');w.className='flip';w.tabIndex=0;w.setAttribute('role','button');w.setAttribute('aria-label',c[1]+'. Activa para ver el detalle');
+w.innerHTML='<div><div class="face f"><div class="ico">'+c[0]+'</div><h3>'+c[1]+'</h3><span class="hint">Toca para ver el detalle</span></div><div class="face k"><h3>'+c[1]+'</h3><p>'+c[2]+'</p></div></div>';
+var t=function(){w.classList.toggle('fp')};w.onclick=t;w.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();t()}};$('cards').appendChild(w)});
+
+/* Pestañas accesibles */
+function tabs(tid,xid,D){var box=$(tid);D.forEach(function(x,i){var b=document.createElement('button');b.className='tb';b.type='button';b.setAttribute('role','tab');b.setAttribute('aria-selected','false');b.textContent=x[0];
+b.onclick=function(){[].forEach.call(box.children,function(y){y.setAttribute('aria-selected','false')});b.setAttribute('aria-selected','true');$(xid).innerHTML='<h3>'+x[0]+'</h3><p>'+x[1]+'</p>'};
+b.onkeydown=function(e){var n=null;if(e.key==='ArrowRight')n=box.children[(i+1)%D.length];if(e.key==='ArrowLeft')n=box.children[(i+D.length-1)%D.length];if(n){n.focus();n.click()}};box.appendChild(b)});box.children[0].click()}
+tabs('st','sx',[['🏢 Oficinas','Puestos de trabajo, VoIP, impresoras y WiFi. Se usan bandejas en cielo raso y canaletas en pared.'],['🎓 Colegios y universidades','Salones, laboratorios y salas de cómputo con muchas tomas. Backbone de fibra entre bloques.'],['🏥 Hospitales','Redes críticas (historia clínica, equipos médicos). Exigen rutas protegidas y muy ordenadas.'],['🖥️ Centros de datos','Miles de cables en bandejas y escalerillas elevadas, guiados por TIA-942.'],['🏭 Industria','Entornos con polvo, humedad o interferencia: tubería metálica y fibra.'],['🏬 Centros comerciales','Cámaras, puntos de venta y WiFi en grandes superficies.']]);
+tabs('tt','tx',[['🔩 Conduit','Tubo metálico (EMT) o PVC. Ventaja: máxima protección. Cuidado: llenado máx. 40 % y no más de 3 cajas por tramo.'],['🪜 Bandeja','Estructura abierta sobre el cielo raso. Ventaja: fácil de ampliar y ventilar. Cuidado: diseñar al 25 %, máximo 50 %.'],['📦 Canaleta','Plástica o metálica sobre la pared. Ventaja: ideal para edificios existentes. Cuidado: capacidad limitada.'],['🪝 J-hooks','Ganchos para pocos cables. Ventaja: económicos. Cuidado: no sirven para cargas grandes.'],['🔲 Piso elevado','Cables bajo el piso técnico. Ventaja: flexible en salas de cómputo. Cuidado: puede bloquear el aire frío.'],['⬆️ Shaft','Ducto vertical entre pisos para el backbone. Cuidado: sellar con material cortafuego.']]);
+
+/* Calculadora */
+var D=$('D'),d=$('d'),n=$('n');
+function calc(){var a=+D.value,b=+d.value,c=+n.value;if(!(a>0&&b>0&&c>0)){$('rr').textContent='Ingresa valores mayores que cero.';return}
+var f=c*b*b/(a*a)*100;$('bb').style.width=Math.min(f,100)+'%';$('bb').style.background=f<=40?'var(--ok)':'var(--wa)';
+$('rr').innerHTML='Llenado: <b>'+f.toFixed(1)+' %</b> '+(f<=40?'✅ cumple el límite de 40 %.':'⚠️ supera el límite de 40 %.')+' Máximo recomendado: <b>'+Math.floor(.4*a*a/(b*b))+'</b> cables.'}
+[D,d,n].forEach(function(e){e.oninput=calc});calc();
+
+/* Edificio */
+var I=['Acometida: por aquí entra el servicio del proveedor de internet al edificio.','Cuarto de equipos: aloja el rack principal, switch core, UPS y router.','Shaft: ducto vertical por donde sube el backbone (fibra) entre pisos.','Cuarto de telecomunicaciones: termina el horizontal del piso y conecta con el backbone.','Bandeja: canalización sobre el cielo raso; diseñarla al 25 % de llenado.','Puesto de trabajo: toma de datos conectada con UTP, máximo 90 m.'];
+document.querySelectorAll('.hs').forEach(function(r){var s=function(){document.querySelectorAll('.hs').forEach(function(x){x.classList.remove('on')});r.classList.add('on');$('ip').textContent=I[r.dataset.i]};r.onclick=s;r.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();s()}}});
+
+/* Videos */
+var V=[['¿Qué es el cableado estructurado?','cableado estructurado que es'],['Canalizaciones y bandejas portacables','canalizaciones cableado estructurado bandeja portacables'],['Norma TIA-569 explicada','norma TIA 569 canalizaciones espacios telecomunicaciones'],['Cableado horizontal y backbone','cableado horizontal vertical backbone cableado estructurado'],['Cuarto de telecomunicaciones y rack','cuarto de telecomunicaciones rack cableado estructurado']];
+V.forEach(function(v){var a=document.createElement('a');a.className='vid';a.target='_blank';a.rel='noopener';a.href='https://www.youtube.com/results?search_query='+encodeURIComponent(v[1]);a.innerHTML='<div class="pl">▶</div><div><span>'+v[0]+'</span><small>Abre una búsqueda en YouTube</small></div>';$('vl').appendChild(a)});
+
+/* Quiz */
+var Q=[
+['¿Qué es una canalización?',['Ruta física que protege y soporta los cables','Un tipo de cable','Un software de red'],0,'Es la ruta física (tubería, bandeja, canaleta) por donde viajan los cables.'],
+['¿Qué norma regula canalizaciones y espacios?',['IEEE 802.11','ANSI/TIA-569-E','TIA-606'],1,'TIA-569 define canalizaciones y espacios; TIA-606 define la administración.'],
+['Llenado máximo de un conduit con 3 o más cables',['90 %','10 %','40 %'],2,'Con 3 o más cables, el conduit no debe superar el 40 % de llenado.'],
+['¿A qué porcentaje se diseña inicialmente una bandeja?',['25 %','75 %','100 %'],0,'Se diseña al 25 % para dejar espacio a futuros cambios, con máximo 50 %.'],
+['Distancia máxima del cable horizontal permanente',['300 m','90 m','30 m'],1,'Son 90 m de cable permanente, más hasta 10 m de patch cords.'],
+['¿Cómo se llama el cableado que une pisos?',['Patch cord','Horizontal','Backbone o vertical'],2,'El backbone (vertical) conecta cuartos entre pisos y edificios.'],
+['¿Dónde termina el horizontal de cada piso?',['Cuarto de telecomunicaciones','En la azotea','En la cocina'],0,'Cada piso tiene su cuarto de telecomunicaciones.'],
+['¿Por qué separar datos y energía?',['Ahorrar cable','Evitar interferencia (EMI)','Por estética'],1,'Los campos eléctricos pueden interferir con la señal de datos.'],
+['¿Qué norma regula el etiquetado?',['TIA-606','TIA-569','NEC'],0,'TIA-606 define cómo identificar y documentar cables y tomas.'],
+['Canalización abierta, fácil de ampliar, sobre el cielo raso',['Bandeja portacables','Conduit sellado','Ducto de gas'],0,'La bandeja es abierta, ventilada y fácil de ampliar.'],
+['Regla práctica del radio de curvatura del UTP',['1 × el diámetro','4 × el diámetro','20 × el diámetro'],1,'Como regla práctica, el radio mínimo de curvatura en UTP es 4 veces el diámetro.'],
+['¿Qué reglamento es referencia eléctrica en Colombia?',['DIAN','ICFES','RETIE'],2,'El RETIE es el reglamento técnico de instalaciones eléctricas.']];
+var qi=0,pt=0;
+function qr(){var z=$('qz');$('pb').style.width=(qi/Q.length*100)+'%';z.innerHTML='';
+if(qi>=Q.length){var m=pt>=10?['🏆','¡Felicitaciones, Laura!','Dominas el tema. Estás lista para tu ACA.']:pt>=7?['👏','¡Buen trabajo!','Vas bien. Repasa Normas y Diseño para llegar a la meta.']:['📚','Sigue practicando','Aún no alcanzas el nivel esperado. Repasa las secciones y vuelve a intentarlo.'];
+z.innerHTML='<div class="res-card"><div class="big">'+m[0]+'</div><h2 style="font-size:28px">'+m[1]+'</h2><div class="num" style="margin:14px 0 6px">'+pt+' / '+Q.length+'</div><p style="color:var(--mu)">'+m[2]+'</p></div>';
+var r=document.createElement('button');r.className='btn-s';r.type='button';r.textContent='Reintentar el quiz';r.onclick=function(){qi=0;pt=0;qr()};z.firstChild.appendChild(r);$('pb').style.width='100%';return}
+var q=Q[qi];
+var h=document.createElement('div');h.style.padding='28px';
+h.innerHTML='<div class="qn">Pregunta '+(qi+1)+' de '+Q.length+'</div><div class="qq">'+q[0]+'</div>';
+var fb=document.createElement('div');fb.className='fb';fb.setAttribute('aria-live','polite');
+var nx=document.createElement('button');nx.className='btn-s';nx.type='button';nx.style.display='none';nx.textContent=qi===Q.length-1?'Ver resultado':'Siguiente pregunta';nx.onclick=function(){qi++;qr()};
+var bs=[];var answered=false;
+q[1].forEach(function(o,j){var b=document.createElement('button');b.className='qa';b.type='button';b.innerHTML='<span>'+String.fromCharCode(65+j)+'.</span> <span>'+o+'</span>';bs.push(b);
+b.onclick=function(){if(answered)return;answered=true;bs.forEach(function(x){x.disabled=true});
+if(j===q[2]){b.classList.add('ok');pt++;fb.innerHTML='✅ ¡Correcto! <small>'+q[3]+'</small>'}
+else{b.classList.add('no');bs[q[2]].classList.add('ok');fb.innerHTML='❌ Incorrecto. La respuesta es la '+String.fromCharCode(65+q[2])+'. <small>'+q[3]+'</small>'}
+nx.style.display='inline-flex'};
+h.appendChild(b)});
+h.appendChild(fb);h.appendChild(nx);z.appendChild(h);
+}
+qr();
+})();
+</script>
+</body></html>
